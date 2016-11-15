@@ -1,0 +1,17 @@
+.jumbotron {
+	font-size: 60px;
+	font-family: "Shrikhand";
+}
+
+.anotherFont {
+	font-family: "Questrial";
+	font-size: 25px;
+}
+
+body {
+	font-family: "Shrikhand";
+}
+
+.btn-default {
+	margin: 7px;
+}

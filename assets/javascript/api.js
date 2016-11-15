@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-var topics = ['beach', 'smoke', 'stars', 'lava', 'comet', 'moon', 'sun', 'coral', 'trees'];
+var topics = ['beach', 'smoke', 'stars', 'lava', 'comet', 'moon', 'sun', 'coral', 'trees', 'grass', 'flowers', 'sky', 'clouds', 'dirt'];
 
 renderButtons();
 
@@ -18,7 +18,7 @@ function displayGifs() {
 			var gifDiv = $("<div class= item>");
 			var rating = results[i].rating;
 			var p = $("<p>").text("Rating: " + rating);
-			var gifImage = $("<img>");
+			var gifImage = $("<img>"); 
 			gifImage.attr("src", results[i].images.fixed_height_still.url);
 			gifImage.attr("data-still", results[i].images.fixed_height_still.url);
 			gifImage.attr("data-animate", results[i].images.fixed_height.url);
@@ -55,6 +55,8 @@ function renderButtons() {
 	for (var i=0; i < topics.length; i++) {
 		var a = $("<button>")
 		a.addClass('gif');
+		a.addClass('btn');
+		a.addClass('btn-default');
 		a.attr('data-name', topics[i]);
 		a.text(topics[i]);
 		$("#gifButtons").append(a);
@@ -64,10 +66,15 @@ function renderButtons() {
 $('#addGif').on('click', function() {
 
 	var gifSet = $('#gif-input').val().trim();
-	topics.push(gifSet);
 
-		renderButtons();
-		return false; 
+	if (!topics.includes(gifSet) && gifSet.length > 2) {
+	topics.push(gifSet);
+	} else {
+		alert("Get yourself a brand new one, babe. It's on me.");
+	};
+
+	renderButtons();
+	return false; 
 
 	});
 
