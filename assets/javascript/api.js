@@ -15,9 +15,10 @@ function displayGifs() {
 		var results = response.data;
 
 		for (var i= 0; i < results.length; i++) {
-			var gifDiv = $("<div class= item>");
+			var gifDiv = $("<div class='item'></div>");
 			var rating = results[i].rating;
 			var p = $("<p>").text("Rating: " + rating);
+			p.addClass("calmerFont");
 			var gifImage = $("<img>"); 
 			gifImage.attr("src", results[i].images.fixed_height_still.url);
 			gifImage.attr("data-still", results[i].images.fixed_height_still.url);
@@ -57,6 +58,7 @@ function renderButtons() {
 		a.addClass('gif');
 		a.addClass('btn');
 		a.addClass('btn-default');
+		a.addClass('calmerFont');
 		a.attr('data-name', topics[i]);
 		a.text(topics[i]);
 		$("#gifButtons").append(a);

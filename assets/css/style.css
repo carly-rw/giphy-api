@@ -1,17 +1,42 @@
 .jumbotron {
 	font-size: 60px;
-	font-family: "Shrikhand";
 }
 
-.anotherFont {
+.calmerFont {
 	font-family: "Questrial";
-	font-size: 25px;
 }
 
-body {
+.sexyFont {
 	font-family: "Shrikhand";
 }
 
 .btn-default {
-	margin: 7px;
+	margin: 2px;
+	font-size: 16px;
+}
+
+#gif-input {
+	width: 90%;
+}
+
+.middleSize {
+	font-size: 25px;
+}
+
+.panel {
+	width: 95%;
+}
+
+img {
+	width: 250px;
+	height: 250px;
+}
+
+.submitButton {
+	width: 90%;
+	margin-left: 1px;
+}
+
+body {
+	background-image: ;
 }
