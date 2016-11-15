@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Giphy API game thing!</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<!-- <script type="text/javascript" src="assets/javascript/api.js"></script> -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<script src='http://code.jquery.com/jquery-2.1.3.min.js'></script>
+</head>	
+<body>
+	<div class="container">
+
+		<div class="header">
+			Giphy game thing! Fantastic use of APIs +1 100%!
+		</div>
+
+		<div id="gifButtons">
+		</div>
+
+			<form id="input-form">
+				<label for="gif-input">See some gifs!</label>
+				<input type="text" id="gif-input"><br>
+
+				<input id="addGif" type="submit" value="Click to see your gifs!">
+			</form>
+
+		<div id="gifDump">
+		</div>
+
+	</div>
+
+<script type="text/javascript" src="assets/javascript/api.js">
+
+
+var topics = ['puppies', 'kitties', 'lion', 'rabbit', 'ostrich', 'polar bear', 'mountain lion', 'puma', 'meerkat'];
+
+renderButtons();
+
+function displayGifs() {
+	var gif = $(this).data("name");
+	var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + gif + "&limit=10&rating=&api_key=dc6zaTOxFJmzC"
+
+	$.ajax({url: queryURL, method: "GET"}).done(function(response) {
+
+		console.log(response);
+
+		var results = response.data;
+
+		for (var i= 0; i < results.length; i++) {
+			var gifDiv = $("<div class= item>");
+			var rating = results[i].rating;
+			var p = $("<p>").text("Rating: " + rating);
+			var gifImage = $("<img>");
+			gifImage.attr("src", results[i].images.fixed_height_still.url);
+			gifImage.attr("data-still", results[i].images.fixed_height_still.url);
+			gifImage.attr("data-animate", results[i].images.fixed_height.url);
+			gifImage.attr("data-state", "still");
+			gifImage.addClass("gifImage");
+			gifDiv.append(gifImage);
+			gifDiv.append(p);
+			
+		$("#gifDump").prepend(gifDiv);
+	}
+
+	})
+
+}  
+
+$(document).on('click', '.gifImage', function(){
+	console.log("This worked");
+
+var state = $(this).attr("data-state");
+
+            if (state == "still") {
+                $(this).attr("src", $(this).data('animate'));
+                $(this).attr("data-state", "animate");
+            } else {
+                $(this).attr("src", $(this).data('still'));
+                $(this).attr("data-state", "still");
+            };
+         });
+
+
+function renderButtons() {
+	$('#gifButtons').empty();
+
+	for (var i=0; i < topics.length; i++) {
+		var a = $("<button>")
+		a.addClass('gif');
+		a.attr('data-name', topics[i]);
+		a.text(topics[i]);
+		$("#gifButtons").append(a);
+	}
+}
+
+$('#addGif').on('click', function() {
+
+	var gifSet = $('#gif-input').val().trim();
+	topics.push(gifSet);
+
+		renderButtons();
+		return false; 
+
+	});
+
+$(document).on("click", ".gif", displayGifs);
+
+</script>
+</body>
+</html>
