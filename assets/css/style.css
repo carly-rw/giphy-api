@@ -28,19 +28,25 @@
 }
 
 img {
-	width: 250px;
+	width: 270px;
 	height: 250px;
 }
 
+.item {
+	width: 250px;
+	float: left;
+	margin: 15px;
+}
+
 p {
-	margin: 0 auto;
+	width: 250px;
+}
+
+body {
+	background-image: url();
 }
 
 .submitButton {
 	width: 90%;
 	margin-left: 1px;
-}
-
-#gifDump {
-	width: 100%;
 }

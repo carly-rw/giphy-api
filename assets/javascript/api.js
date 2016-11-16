@@ -6,7 +6,7 @@ renderButtons();
 
 function displayGifs() {
 	var gif = $(this).data("name");
-	var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + gif + "&limit=10&rating=&api_key=dc6zaTOxFJmzC"
+	var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + gif + "&limit=12&rating=&api_key=dc6zaTOxFJmzC"
 
 	$.ajax({url: queryURL, method: "GET"}).done(function(response) {
 
@@ -15,7 +15,7 @@ function displayGifs() {
 		var results = response.data;
 
 		for (var i= 0; i < results.length; i++) {
-			var gifDiv = $("<div class='item'></div>");
+			var gifDiv = $("<div class=item></div>");
 			var rating = results[i].rating;
 			var p = $("<p>").text("Rating: " + rating);
 			p.addClass("calmerFont");
