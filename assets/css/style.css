@@ -32,11 +32,15 @@ img {
 	height: 250px;
 }
 
+p {
+	margin: 0 auto;
+}
+
 .submitButton {
 	width: 90%;
 	margin-left: 1px;
 }
 
-body {
-	background-image: ;
+#gifDump {
+	width: 100%;
 }
