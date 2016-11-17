@@ -1,6 +1,9 @@
 .jumbotron {
 	font-size: 60px;
 	background: #F38181 !important;
+	border-style: solid !important;
+	border-color: red !important;
+	border-size: 1px !important;
 }
 
 .tintedImage {
@@ -33,11 +36,16 @@
 
 .middleSize {
 	font-size: 25px;
+	background-color: #95E1D3;
 }
 
 .panel {
 	width: 95%;
 	background-color: #95E1D3 !important;
+	border-style: solid !important;
+	border-color: red !important;
+	border-size: 3
+	px !important;
 }
 
 img {
@@ -52,7 +60,8 @@ img {
 }
 
 p {
-	width: 250px;
+	width: 270px;
+	background: white;
 }
 
 .submitButton {
