@@ -1,5 +1,17 @@
 .jumbotron {
 	font-size: 60px;
+	background: #F38181 !important;
+}
+
+.tintedImage {
+  background: 
+    /* top, transparent red, faked with gradient */ 
+    linear-gradient(
+      rgba(252, 227, 138, 0.45), 
+      rgba(252, 227, 138, 0.45)
+    ),
+    /* bottom, image */
+    url("../images/daisies.jpg");
 }
 
 .calmerFont {
@@ -25,6 +37,7 @@
 
 .panel {
 	width: 95%;
+	background-color: #95E1D3 !important;
 }
 
 img {
@@ -40,10 +53,6 @@ img {
 
 p {
 	width: 250px;
-}
-
-body {
-	background-image: url();
 }
 
 .submitButton {
