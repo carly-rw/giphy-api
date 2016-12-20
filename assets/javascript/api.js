@@ -1,10 +1,9 @@
-$(document).ready(function () {
+$(document).ready(function() {
 
 var topics = ['beach', 'smoke', 'stars', 'lava', 'comet', 'moon', 'sun', 'coral', 'trees', 'grass', 'flowers', 'sky', 'clouds', 'dirt'];
 
-renderButtons();
-
 function displayGifs() {
+	$("#gifDump").empty();
 	var gif = $(this).data("name");
 	var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + gif + "&limit=12&rating=&api_key=dc6zaTOxFJmzC"
 
@@ -81,6 +80,8 @@ $('#addGif').on('click', function() {
 	});
 
 $(document).on("click", ".gif", displayGifs);
+
+renderButtons();
 
 });
 
