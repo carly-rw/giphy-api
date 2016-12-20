@@ -27,27 +27,10 @@ function displayGifs() {
 			gifDiv.append(gifImage);
 			gifDiv.append(p);
 			
-		$("#gifDump").prepend(gifDiv);
-	}
-
-	})
-
+			$("#gifDump").prepend(gifDiv);
+		}
+	});
 }  
-
-$(document).on('click', '.gifImage', function(){
-	console.log("This worked");
-
-var state = $(this).attr("data-state");
-
-            if (state == "still") {
-                $(this).attr("src", $(this).data('animate'));
-                $(this).attr("data-state", "animate");
-            } else {
-                $(this).attr("src", $(this).data('still'));
-                $(this).attr("data-state", "still");
-            };
-         });
-
 
 function renderButtons() {
 	$('#gifButtons').empty();
@@ -64,9 +47,9 @@ function renderButtons() {
 	}
 }
 
-$('#addGif').on('click', function() {
+$("#addGif").on("click", function() {
 
-	var gifSet = $('#gif-input').val().trim();
+	var gifSet = $("#gif-input").val().trim();
 
 	if (!topics.includes(gifSet) && gifSet.length > 2) {
 	topics.push(gifSet);
@@ -77,11 +60,25 @@ $('#addGif').on('click', function() {
 	renderButtons();
 	return false; 
 
-	});
+});
 
 $(document).on("click", ".gif", displayGifs);
 
+$(document).on('click', '.gifImage', function(){
+	console.log("This worked");
+
+var state = $(this).attr("data-state");
+
+    if (state == "still") {
+        $(this).attr("src", $(this).data("animate"));
+        $(this).attr("data-state", "animate");
+        } else {
+        $(this).attr("src", $(this).data("still"));
+        $(this).attr("data-state", "still");
+    };
+});
+
 renderButtons();
 
-});
+}); // End of document ready
 
